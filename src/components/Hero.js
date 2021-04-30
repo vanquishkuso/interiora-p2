@@ -139,7 +139,7 @@ const HeroItems = styled.div`
     text-align: center;
     height: 100vh;
     max-height: 100%;
-    margin-top: 2.8em;
+    margin-top: 0em;
     padding: 0;
     color: #fff;
     line-height: 1.1;

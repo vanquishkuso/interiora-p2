@@ -1,15 +1,21 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Footer from "./Footer"
 import Header from "./Header"
 import { GlobalStyle } from "./styles/GlobalStyles"
 import CookieConsent, { Cookies } from "react-cookie-consent"
+import BottomMobileMenu from "./BottomMobileMenu"
 
 const Layout = ({ children }) => {
+    const [mobileMenu, setMobileMenu] = useState()
+    useEffect(() => {
 
+        setMobileMenu(<BottomMobileMenu />)
+    }, [children])
     return (
         <>
             <GlobalStyle />
             <Header />
+            {mobileMenu}
             <main>{children}</main>
             <CookieConsent
                 location="bottom"
@@ -17,6 +23,7 @@ const Layout = ({ children }) => {
                 cookieName="myAwesomeCookieName2"
                 style={{ background: "#373737", height: "270px" }}
                 buttonStyle={{ backgroundColor: "#fff", width: "131px", height: "36px", color: "#373737", fontSize: "18px", fontWeight: "bold" }}>Denna webbplatsen använder cookies för att förbättra användarupplevelsen. Vill du veta mer om cookies och hur de används vänligen kolla in vår <a style={{ color: "#877D70", fontWeight: "bold" }} href="/om-cookies">Cookiepolicy</a></CookieConsent>
+
             <Footer />
         </>
 
