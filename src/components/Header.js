@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from 'styled-components'
 import { FaBars } from 'react-icons/fa'
 import { MenuData } from '../data/MenuData'
 import { FiShoppingCart, FiSearch } from 'react-icons/fi'
 import { BsFillPersonFill } from "react-icons/bs"
-import TransitionLink from "gatsby-plugin-transition-link"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-import ProductData from "../data/ProductList"
 import SearchPage from "./SearchPage"
 import { AiOutlineClose } from "react-icons/ai"
 
@@ -72,6 +69,10 @@ const Header = () => {
           <Search />
         </SearchClickable>
         {show ? <div><SearchPage /><CloseIcon onClick={searchClick} /><SearchWrapper onClick={searchClick} /></div> : null}
+
+        { /*
+        {showMobileSearch ? <div><SearchPageMobile /><CloseIconMobile onClick={searchClickMobile} /><SearchWrapper onClick={searchClickMobile} /></div> : null}
+        */}
         <NavLink to="/varukorgen">
           <Cart />
         </NavLink>
@@ -432,27 +433,43 @@ const MobileMenuCloseIcon = styled(AiOutlineClose)`
 `
 
 const NavBtn = styled.div`
-display: flex;
-align-items: center;
-margin-right: 24px;
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
 
-@media screen and(max-width: 1085px) {
-  display: none;
+  @media screen and(max-width: 1085px) {
+    display: none;
 }
 `
 
 const CloseIcon = styled(AiOutlineClose)`
-position: absolute;
-top: calc(100% + 22px);
-right: 0;
-margin-right: 0.7em;
-color: #877D70;
-font-size: 1.8rem;
-cursor: pointer;
-z-index: 999;
-  &:hover {
-  color: #373737;
-  transition: 0.3s ease;
+  position: fixed;
+  top: calc(0% + 105px);
+  right: 0;
+  margin-right: 0.7em;
+  color: #877D70;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 999;
+    &:hover {
+    color: #373737;
+    transition: 0.3s ease;
+}
+`
+
+
+const CloseIconMobile = styled(AiOutlineClose)`
+  position: fixed;
+  top: 105px;
+  right: 0;
+  margin-right: 0.7em;
+  color: #877D70;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 999;
+    &:hover {
+    color: #373737;
+    transition: 0.3s ease;
 }
 `
 

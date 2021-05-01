@@ -7,6 +7,7 @@ import SEO from '../components/Seo'
 import Hero from '../components/Hero'
 import AddToCartButton from '../components/AddToCartButton'
 import MiniBanner from "../components/MiniBanner"
+import CategoryButtons from '../components/CategoryButtons'
 
 const CategoryPage = ({
 
@@ -20,6 +21,7 @@ const CategoryPage = ({
     <Layout>
         <Hero title={products[0].categories[0].name} paragraph={products[0].categories[0].description} />
         <SEO title={products[0].categories[0].name + " - Interiöra"} />
+        <CategoryButtons />
         <ProductsWrapper id="product-section">
             {
 

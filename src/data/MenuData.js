@@ -5,7 +5,7 @@ export const MenuData = [
     { title: "Bord", link: "/kategori/bord" },
     { title: "Matsalsgrupper", link: "/kategori/matsalsgrupper" },
     { title: "Sängar", link: "/kategori/sangar" },
-    { title: "Soffor", link: "/kategori/soffor" },
+    { title: "Soffor", link: "/kategori/soffor", img: "../assets/images/Soffor.jpg" },
     { title: "Fåtöljer", link: "/kategori/fatoljer" },
     { title: "Dekoration", link: "/kategori/dekoration" },
 

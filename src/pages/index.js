@@ -8,6 +8,7 @@ import { Button } from '../components/Button'
 import AddToCartButton from '../components/AddToCartButton'
 import Lampor from '../assets/images/Lampor.jpg'
 import MiniBanner from '../components/MiniBanner'
+import CategoryButtons from '../components/CategoryButtons'
 
 const pageQuery = graphql`
 {
@@ -40,6 +41,7 @@ const IndexPage = () => {
         <Layout>
             <SEO title="Interiöra" />
             <Hero title={"Interiöra"} paragraph={"Minimalism när den är som bäst"} />
+            <CategoryButtons />
             <ProductsWrapper id="product-section">
                 {products.slice(0, 6).map(({ slug, ...products }, i) => (
                     <Product>
@@ -157,6 +159,7 @@ const Product = styled.div`
 
 const Price = styled.p`
     font-size: 18px;
+    text-align: center;
 `
 
 const MiniBannerWrapper = styled.div`

@@ -37,8 +37,8 @@ const ProductList = ({ input, productList = [] }) => {
 const SearchWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: calc(100% + 80px);
+    position: fixed;
+    top: calc(0% + 160px);
     left: 0;
     right: 0;
     border-radius: 5px;

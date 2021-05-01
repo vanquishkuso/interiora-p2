@@ -20,8 +20,8 @@ const SearchBar = ({ input: keyword, onChange: setKeyword }) => {
 }
 
 const SearchInput = styled.input`
-    position: absolute;
-    top: calc(100% + 0.1px);
+    position: fixed;
+    top: calc(0% + 80px);
     left: 0;
     right: 0;
     text-decoration: none;
