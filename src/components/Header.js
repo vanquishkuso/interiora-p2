@@ -29,15 +29,10 @@ const Header = () => {
 
   return (
     <Nav>
-
-      <AniLink paintDrip to="/" duration={0.6} hex="#877D70" style={{ textDecoration: "none", margin: "0 auto" }}>
+      <NavLink to="/">
         <Logo style={{ fontFamily: 'Poppins', fontSize: '2rem' }}>Interiöra</Logo>
-      </AniLink>
-
-
-
+      </NavLink>
       <Bars onClick={menuClick} />
-
       { showMobileMenu ? <MobileWrapper>
         <MobileMenuCloseIcon onClick={menuClick} />
         <MobileMenu>
@@ -67,36 +62,137 @@ const Header = () => {
         {MenuData.map((item, index) => (
           <NavLink to={item.link} key={index}>{item.title}</NavLink>
         ))}
-
       </NavMenu>
 
       <CartWrapper>
-        <NavLink>
-          <AniLink paintDrip to="/mitt-konto" duration={0.6} hex="#877D70"><Account /></AniLink>
+        <NavLink to="/mitt-konto" >
+          <Account />
         </NavLink>
         <SearchClickable onClick={searchClick}>
           <Search />
         </SearchClickable>
-
         {show ? <div><SearchPage /><CloseIcon onClick={searchClick} /><SearchWrapper onClick={searchClick} /></div> : null}
-
-
-        <NavLink>
-          <AniLink paintDrip to="/varukorgen" duration={0.6} hex="#877D70"><Cart /></AniLink>
+        <NavLink to="/varukorgen">
+          <Cart />
         </NavLink>
       </CartWrapper>
-      {/*
-      <NavBtn>
-        <Button primary="true" round="true" to="/aterforsaljare">
-          Köp här
-          </Button>
-        </NavBtn>
-*/ }
+
+      <MobileMenuWrapper style={{ position: "fixed", bottom: "0" }}>
+        <MobileNav>
+          <ButtonWrapper onClick={menuClick} >
+            <BarsMobile />
+          </ButtonWrapper>
+
+          <ButtonWrapper onClick={searchClick}>
+            <SearchMobile />
+          </ButtonWrapper>
+
+
+          <ButtonWrapperLink to="/varukorgen/">
+            <CartMobile />
+          </ButtonWrapperLink>
+
+
+          <ButtonWrapperLink to="/mitt-konto/">
+            <AccountMobile />
+          </ButtonWrapperLink>
+
+        </MobileNav>
+      </MobileMenuWrapper>
+
     </Nav>
   )
 }
 
 export default Header
+
+const SearchMobile = styled(FiSearch)`
+  color: #fff;
+  font-size: 2em;
+  height: 48px;
+`
+
+const AccountMobile = styled(BsFillPersonFill)`
+  color: #fff;
+  font-size: 2em;
+  height: 48px;
+`
+
+const CartMobile = styled(FiShoppingCart)`
+  color: #fff;
+  font-size: 2em;
+  height: 48px;
+`
+
+const BarsMobile = styled(FaBars)`
+  color: #fff;
+  font-size: 2em;
+  height: 48px;
+`
+
+const ButtonWrapper = styled.div`
+  border-left: 2px solid #000;
+  padding: 1em;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  transition: 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+      background-color: #f8f8f8;
+  }
+  
+  &:hover ${BarsMobile} {
+    color: #373737;
+  }
+
+  &:hover ${SearchMobile} {
+    color: #373737;
+  }
+
+`
+
+const ButtonWrapperLink = styled(Link)`
+  border-left: 2px solid #000;
+  padding: 1em;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  transition: 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+      background-color: #f8f8f8;
+  }
+
+  &:hover ${CartMobile} {
+    color: #373737;
+  }
+  
+  &:hover ${AccountMobile} {
+    color: #373737;
+  }
+`
+
+
+const MobileNav = styled.nav`
+  align-self: flex-start;
+  background: #fff;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem calc((100vw - 1300px) / 2);
+  z-index: 998;
+  background-color: #373737;
+  width: 100vw;
+`
+
+const MobileMenuWrapper = styled.div`
+  z-index: 999;
+`
+
 const Nav = styled.nav`
   background: #fff;
   height: 80px;

@@ -7,10 +7,10 @@ import { BsFillPersonFill } from "react-icons/bs"
 const BottomMobileMenu = () => {
 
   return (
-    <MenuWrapper>
-      <Nav>
+    <MobileMenuWrapper style={{ position: "fixed", bottom: "0" }}>
+      <MobileNav>
         <ButtonWrapper>
-          <Bars />
+          <Bars id="#bars" />
         </ButtonWrapper>
 
         <ButtonWrapper>
@@ -25,10 +25,34 @@ const BottomMobileMenu = () => {
           <Account />
         </ButtonWrapper>
 
-      </Nav>
-    </MenuWrapper>
+      </MobileNav>
+    </MobileMenuWrapper>
   )
 }
+
+const Search = styled(FiSearch)`
+  color: #fff;
+  font-size: 2em;
+  height: 48px;
+`
+
+const Account = styled(BsFillPersonFill)`
+  color: #fff;
+  font-size: 2em;
+  height: 48px;
+`
+
+const Cart = styled(FiShoppingCart)`
+  color: #fff;
+  font-size: 2em;
+  height: 48px;
+`
+
+const Bars = styled(FaBars)`
+  color: #fff;
+  font-size: 2em;
+  height: 48px;
+`
 
 const ButtonWrapper = styled.div`
   border-left: 2px solid #000;
@@ -36,31 +60,31 @@ const ButtonWrapper = styled.div`
   width: 25%;
   display: flex;
   justify-content: center;
+  transition: 0.3s ease;
+
+  &:hover {
+      background-color: #f8f8f8;
+  }
+  
+  &:hover ${Bars} {
+    color: #373737;
+  }
+
+  &:hover ${Account} {
+    color: #373737;
+  }
+
+  &:hover ${Search} {
+    color: #373737;
+  }
+
+  &:hover ${Cart} {
+    color: #373737;
+  }
 `
 
-const Bars = styled(FaBars)`
-  color: #fff;
-  font-size: 2em;
-`
-
-const Search = styled(FiSearch)`
-  color: #fff;
-  font-size: 2em;
-`
-
-const Account = styled(BsFillPersonFill)`
-  color: #fff;
-  font-size: 2em;
-`
-
-const Cart = styled(FiShoppingCart)`
-  color: #fff;
-  font-size: 2em;
-`
-
-const Nav = styled.nav`
-  position: fixed;
-  bottom: 0;
+const MobileNav = styled.nav`
+  align-self: flex-start;
   background: #fff;
   height: 80px;
   display: flex;
@@ -69,14 +93,10 @@ const Nav = styled.nav`
   padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 998;
   background-color: #373737;
-  width: 100%;
+  width: 100vw;
 `
 
-const MenuWrapper = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+const MobileMenuWrapper = styled.div`
   z-index: 999;
 `
 
