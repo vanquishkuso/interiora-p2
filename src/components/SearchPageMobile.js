@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import SearchBar from './SearchBar'
+import SearchBarMobile from './SearchBarMobile'
 import ProductList from '../data/ProductList'
+import styled from "styled-components"
+
 
 const SearchPage = (props) => {
     const [input, setInput] = useState('');
@@ -27,7 +29,7 @@ const SearchPage = (props) => {
 
     return (
         <>
-            <SearchBar
+            <SearchBarMobile
                 input={input}
                 onChange={updateInput}
                 styles={{ marginLeft: "5em", zIndex: "999" }}

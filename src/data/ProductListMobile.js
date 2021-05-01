@@ -38,7 +38,7 @@ const SearchWrapper = styled.div`
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: calc(100% + 80px);
+    top: calc(100% + 88px);
     left: 0;
     right: 0;
     border-radius: 5px;
@@ -46,6 +46,7 @@ const SearchWrapper = styled.div`
 `
 
 const SearchList = styled(Link)`
+
     width: 95%;
     margin: 0 auto;
     display: flex;

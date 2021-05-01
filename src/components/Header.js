@@ -443,7 +443,7 @@ margin-right: 24px;
 
 const CloseIcon = styled(AiOutlineClose)`
 position: absolute;
-top: calc(100% + 7px);
+top: calc(100% + 22px);
 right: 0;
 margin-right: 0.7em;
 color: #877D70;
