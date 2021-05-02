@@ -7,15 +7,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Button from "./Button"
 
 const BottomMobileMenu = ({ isClicked }) => {
-  const [getCart, setGetCart] = useState()
-  const [addCartStyle, setAddCartStyle] = useState()
 
-  useEffect(() => {
-    console.log(isClicked)
-    if (isClicked === true) {
-      setAddCartStyle(`backgroundColor: "green"`)
-    }
-  }, [isClicked])
 
   return (
     <MobileMenuWrapper style={{ position: "fixed", bottom: "0" }}>
@@ -28,9 +20,13 @@ const BottomMobileMenu = ({ isClicked }) => {
           <Search />
         </ButtonWrapper>
 
+
+
+
         <ButtonWrapper>
-          <Cart />
+          <Cart style={{ fontSize: "20em" }} />
         </ButtonWrapper>
+
 
         <ButtonWrapper>
           <Account />
@@ -106,7 +102,7 @@ const MobileNav = styled.nav`
   align-items: center;
   padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 998;
-  background-color: #fff;
+  background-color: #373737;
   width: 100vw;
 `
 

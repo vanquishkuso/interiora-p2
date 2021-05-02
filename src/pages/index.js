@@ -70,7 +70,7 @@ const IndexPage = () => {
 
                         </LinkWrapper>
                         <ButtonWrapper>
-                            <AddToCartButton product={products} />
+                            <AddToCartButton product={products} slug={slug} />
                         </ButtonWrapper>
                     </Product>
                 ))}

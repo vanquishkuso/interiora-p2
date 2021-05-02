@@ -78,7 +78,6 @@ const CartPage = () => {
                         <Wrapper>
                             <ProductWrapper key={data.id}>
                                 <LeftColumn>
-
                                     <img src={data.img} alt="" style={{
                                         height: "100px",
                                         width: "100px",
@@ -87,7 +86,7 @@ const CartPage = () => {
                                         transition: "0.3s cubic-bezier(0.075, 0.82, 0.165, 1)"
                                     }} />
                                     <TitleWrapper>
-                                        <ProductTitle>{data.item}</ProductTitle>
+                                        <ProductTitle to={`/produkt/${data.slug}`}>{data.item}</ProductTitle>
                                         <ProductCategory>{data.category}</ProductCategory>
                                     </TitleWrapper>
 
@@ -410,9 +409,17 @@ const ProductCategory = styled.p`
 
 `
 
-const ProductTitle = styled.h2`
+const ProductTitle = styled(Link)`
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #373737;
+    text-decoration: none;
     width: 0em;
     margin: 0;
+    transition: 0.3s ease;
+    &:hover {
+        color: #877D70;
+    }
 `
 
 const TitleWrapper = styled.div`

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from './Button'
 import Loader from "react-loader-spinner"
-import BottomMobileMenu from "./BottomMobileMenu"
 
-
-const AddToCartButton = ({ product }) => {
+const AddToCartButton = ({ product, slug }) => {
     const [addItem, setAddItem] = useState([{}])
     const [isClicked, setIsClicked] = useState(false)
     const [clickedItem, setClickedItem] = useState(null)
@@ -26,11 +24,11 @@ const AddToCartButton = ({ product }) => {
 
     useEffect(() => {
         if (isClicked === true && clickedItem === localStorage.getItem("productid")) {
+
             setTimeout(() => {
                 setIsClicked(false)
             }, 1800)
         }
-
     }, [isClicked])
 
     return (
@@ -44,17 +42,14 @@ const AddToCartButton = ({ product }) => {
                         img: product.images[0].url,
                         price: product.price,
                         category: product.categories[0].name,
-                        qty: 1,
+                        slug: slug,
                     }
                 )
 
             }}>{clickedItem == product.id && isClicked ?
                 <div><Loader type="Oval" color="#cccccc" height={30} width={30} /></div> : <p style={{ marginBottom: "5px", marginTop: "5px" }}>KÖP</p>}</Button>
-            <div style={{ display: "none" }}><BottomMobileMenu isClicked={isClicked} style={{ display: "none" }} /></div>
         </div>
     )
 }
-
-// <button onClick={() => localStorage.clear()}>Clear</button>
 
 export default AddToCartButton

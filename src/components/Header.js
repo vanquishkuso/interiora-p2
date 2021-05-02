@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import styled from 'styled-components'
 import { FaBars } from 'react-icons/fa'
@@ -8,8 +8,8 @@ import { BsFillPersonFill } from "react-icons/bs"
 import SearchPage from "./SearchPage"
 import { AiOutlineClose } from "react-icons/ai"
 
-const Header = () => {
-
+const Header = ({ isClicked }) => {
+  const [getCart, setGetCart] = useState()
   const [show, setShow] = useState(false)
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
@@ -89,9 +89,11 @@ const Header = () => {
           </ButtonWrapper>
 
 
+
           <ButtonWrapperLink to="/varukorgen/">
             <CartMobile />
           </ButtonWrapperLink>
+
 
 
           <ButtonWrapperLink to="/mitt-konto/">
