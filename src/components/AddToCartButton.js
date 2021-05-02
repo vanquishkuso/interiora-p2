@@ -34,7 +34,7 @@ const AddToCartButton = ({ product }) => {
 
     return (
         <div>
-            <Button style={{ width: "131px", height: "36px", margin: "0auto" }} primary={true} round={false} onClick={(e, i) => {
+            <Button style={{ margin: "0auto" }} big={true} primary={true} round={false} onClick={(e, i) => {
                 handleAddToCart(e)
                 addToCart(
                     {

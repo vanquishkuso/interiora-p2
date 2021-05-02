@@ -6,6 +6,20 @@ const ConfirmPage = () => {
 
     return (
         <Layout>
+            <ProgressWrapper style={{ textAlign: "center", marginBottom: "5em", fontWeight: "bold" }}>
+                <NumberWrapper style={{ opacity: "0.3" }}>
+                    <Number >1</Number>
+                    <p>Varukorgen</p>
+                </NumberWrapper>
+                <NumberWrapper style={{ opacity: "0.3" }}>
+                    <Number>2</Number>
+                    <p>Betalning</p>
+                </NumberWrapper>
+                <NumberWrapper>
+                    <Number>3</Number>
+                    <p>Bekräftelse</p>
+                </NumberWrapper>
+            </ProgressWrapper>
             <Wrapper>
                 <h1>Tack för din beställning!</h1>
                 <p>Du har fått ett bekräftelsemejl skickad till din mejladress</p>
@@ -39,7 +53,24 @@ const Wrapper = styled.div`
         margin-bottom: 2rem;
         font-weight: 400;
        }
-   
+`
+
+const NumberWrapper = styled.div`
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+`
+
+const ProgressWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2em;
+`
+
+const Number = styled.p`
+    font-size: 1.5em;
+    margin-left: 0.3em;
+    margin-right: 0.3em;
 `
 
 export default ConfirmPage;

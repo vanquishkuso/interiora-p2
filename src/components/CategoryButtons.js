@@ -59,7 +59,7 @@ const CategoryButtons = () => {
 
     return (
         <CategoryWrapper>
-            {MenuData.map((data, i) => (
+            {MenuData.slice(1, 9).map((data, i) => (
                 <Overlay>
 
                     <CategoryLink to={data.link} style={{

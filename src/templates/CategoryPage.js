@@ -21,7 +21,7 @@ const CategoryPage = ({
     <Layout>
         <Hero title={products[0].categories[0].name} paragraph={products[0].categories[0].description} />
         <SEO title={products[0].categories[0].name + " - Interiöra"} />
-        <CategoryButtons />
+        { /*<CategoryButtons /> */}
         <ProductsWrapper id="product-section">
             {
 

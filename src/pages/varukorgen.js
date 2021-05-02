@@ -5,7 +5,7 @@ import SEO from '../components/Seo'
 import { BiAlarm, BiTrash } from 'react-icons/bi'
 import { Button } from '../components/Button'
 import TransitionLink from "gatsby-plugin-transition-link"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 
 const CartPage = () => {
     const [getCart, setGetCart] = useState([])
@@ -14,6 +14,7 @@ const CartPage = () => {
     const [updateCart, setUpdateCart] = useState("Add")
     const [tax, setTax] = useState(0)
     const [check, setCheck] = useState(false)
+    const [showPay, setShowPay] = useState(false)
 
     const handleRemove = (id) => {
         setUpdateCart("Remove")
@@ -105,6 +106,7 @@ const CartPage = () => {
 
                             </ProductWrapper>
                             <Line />
+
                         </Wrapper>
                     )
                 })
@@ -122,58 +124,107 @@ const CartPage = () => {
     return (
         <Layout>
             <SEO title="Varukorgen - Interiöra" />
-
-
             <CartWrapper>
-                <Title>Varukorgen</Title>
-                {cart}
+
+                {showPay ?
+                    <div>
+                        <ProgressWrapper style={{ textAlign: "center", marginBottom: "5em", fontWeight: "bold" }}>
+                            <NumberWrapper style={{ opacity: "0.3" }}>
+                                <Number >1</Number>
+                                <p>Varukorgen</p>
+                            </NumberWrapper>
+                            <NumberWrapper>
+                                <Number>2</Number>
+                                <p>Betalning</p>
+                            </NumberWrapper>
+                            <NumberWrapper style={{ opacity: "0.3" }}>
+                                <Number>3</Number>
+                                <p>Bekräftelse</p>
+                            </NumberWrapper>
+                        </ProgressWrapper>
+                        <FormWrapper>
+                            <FormTitle>Personuppgifter</FormTitle>
+                        För- och efternamn <Name />
 
 
-                {cartCost ? <BottomRow>
-                    <TotalCost>Totalt</TotalCost>
-                    <Cost>{cartCost} kr</Cost>
-                    <TaxTitle>Varav moms </TaxTitle>
-                    <TaxCost>{Math.round(cartCost * 0.2)} kr</TaxCost>
-                </BottomRow> : null}
+                            <AddressWrapper>
+                                <FirstColumnWrapper>
+                                    <AddressTitle>Adress</AddressTitle>
+                                    <Address />
+                                </FirstColumnWrapper>
+                                <SecondColumnWrapper>
+                                    <ZipTitle>Postnummer</ZipTitle>
+                                    <Zip />
+                                </SecondColumnWrapper>
+
+                            </AddressWrapper>
+                        Ort <City />
+                       Mejladress <Mail />
+                       Telefonnummer <Phone />
+
+                            <CheckBoxTextWrapper>
+                                <CheckBox type="checkbox" onClick={() => setCheck(prev => !prev)} style={{ marginRight: "1em", transform: "scale(1.5)" }} />
+                                <p>Jag godkänner&nbsp;
+                        <a href="/anvandarvillkor">användarvillkoren</a>
+                        &nbsp;förstår Interiöras&nbsp;
+                        <a href="/integritetspolicy">integritetspolicy</a>
+                        &nbsp;när jag bekräftar beställningen.
+                        </p>
+                            </CheckBoxTextWrapper>
+                            <ButtonWrapper>
+                                <Link onClick={() => checkIfBox()} to="/bekraftelse" style={{ textDecoration: "none", margin: "0 auto" }}>
+                                    <ConfirmButton big={true} disabled={!check}>Beställ</ConfirmButton>
+                                </Link>
+                            </ButtonWrapper>
+                        </FormWrapper>
+                    </div>
+
+                    :
+                    <div>
+                        <Title>Varukorgen</Title>
+
+                        {cartCost ?
+                            <div style={{ textAlign: "center", marginBottom: "5em" }}>
+                                <ConfirmButton big={true} >Vidare till betalning</ConfirmButton>
+                                <ProgressWrapper style={{ fontWeight: "bold" }}>
+                                    <NumberWrapper >
+                                        <Number>1</Number>
+                                        <p>Varukorgen</p>
+                                    </NumberWrapper>
+                                    <NumberWrapper style={{ opacity: "0.3" }}>
+                                        <Number>2</Number>
+                                        <p>Betalning</p>
+                                    </NumberWrapper>
+                                    <NumberWrapper style={{ opacity: "0.3" }}>
+                                        <Number>3</Number>
+                                        <p>Bekräftelse</p>
+                                    </NumberWrapper>
+                                </ProgressWrapper>
+                            </div>
+                            : null}
+                        {cart}
+
+                        {cartCost ? <div>
+                            <BottomRow>
+                                <TotalCost>Totalt</TotalCost>
+                                <Cost>{cartCost} kr</Cost>
+                                <TaxTitle>Varav moms </TaxTitle>
+                                <TaxCost>{Math.round(cartCost * 0.2)} kr</TaxCost>
+                            </BottomRow>
+                            <div style={{ textAlign: "center", marginBottom: "5em" }}>
+                                <ConfirmButton big={true} onClick={() => setShowPay(true)} >Vidare till betalning</ConfirmButton>
+                            </div>
+                        </div>
+                            : null}
+
+
+                    </div>
+                }
 
 
 
             </CartWrapper>
-            {cartCost ? <FormWrapper>
-                <FormTitle>Personuppgifter</FormTitle>
-                    För- och efternamn <Name />
 
-
-                <AddressWrapper>
-                    <FirstColumnWrapper>
-                        <AddressTitle>Adress</AddressTitle>
-                        <Address />
-                    </FirstColumnWrapper>
-                    <SecondColumnWrapper>
-                        <ZipTitle>Postnummer</ZipTitle>
-                        <Zip />
-                    </SecondColumnWrapper>
-
-                </AddressWrapper>
-                    Ort <City />
-                   Mejladress <Mail />
-                   Telefonnummer <Phone />
-
-                <CheckBoxTextWrapper>
-                    <CheckBox type="checkbox" onClick={() => setCheck(prev => !prev)} style={{ marginRight: "1em", transform: "scale(1.5)" }} />
-                    <p>Jag godkänner&nbsp;
-                    <a href="/anvandarvillkor">användarvillkoren</a>
-                    &nbsp;förstår Interiöras&nbsp;
-                    <a href="/integritetspolicy">integritetspolicy</a>
-                    &nbsp;när jag bekräftar beställningen.
-                    </p>
-                </CheckBoxTextWrapper>
-                <ButtonWrapper>
-                    <AniLink onClick={() => checkIfBox()} paintDrip to="/bekraftelse" duration={0.6} hex="#877D70" style={{ textDecoration: "none", margin: "0 auto" }}>
-                        <ConfirmButton disabled={!check}>Beställ</ConfirmButton>
-                    </AniLink>
-                </ButtonWrapper>
-            </FormWrapper> : null}
 
             { /* <button onClick={handleCalc}>Räkna ut</button> */}
 
@@ -184,6 +235,23 @@ const CartPage = () => {
 
 export default CartPage
 
+const NumberWrapper = styled.div`
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+`
+
+const ProgressWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2em;
+`
+
+const Number = styled.p`
+    font-size: 1.5em;
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+`
 
 const ConfirmButton = styled(Button)`
     &:disabled {
