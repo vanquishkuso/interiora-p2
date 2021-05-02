@@ -4,8 +4,9 @@ import { Link } from "gatsby"
 
 const ProductList = ({ input, productList = [] }) => {
     let search;
-    if (input.length > 0) {
+    if (input.length > 1) {
         search = productList.map((data, index) => {
+
             if (data) {
                 return (
                     <SearchList key={data.name} to={`/produkt/${data.slug}`}>

@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { FaBars } from 'react-icons/fa'
 import { FiShoppingCart, FiSearch } from 'react-icons/fi'
 import { BsFillPersonFill } from "react-icons/bs"
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+import Button from "./Button"
 
 const BottomMobileMenu = () => {
 
@@ -26,6 +28,8 @@ const BottomMobileMenu = () => {
         </ButtonWrapper>
 
       </MobileNav>
+
+
     </MobileMenuWrapper>
   )
 }

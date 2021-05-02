@@ -12,7 +12,6 @@ import Soffor from '../assets/images/Soffor.jpg'
 import Fåtöljer from '../assets/images/Fåtöljer.jpg'
 import Dekoration from '../assets/images/Dekoration.jpg'
 
-
 const Hero = ({ title, paragraph }) => {
     const [pic, setPic] = useState()
 
@@ -69,7 +68,7 @@ const Hero = ({ title, paragraph }) => {
                     <HeroH1>{title}</HeroH1>
                     <HeroP>{paragraph}</HeroP>
 
-                    { /*   <AnchorLink href="#product-section"><Button primary="true" big="true" round="true">Till produkterna</Button></AnchorLink> */}
+                    <AnchorLink href="#product-section"><Button primary="true" big="true" >Till produkterna</Button></AnchorLink>
                 </HeroItems>
             </HeroContent>
         </HeroContainer >
