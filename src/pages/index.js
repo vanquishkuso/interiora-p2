@@ -42,6 +42,15 @@ const IndexPage = () => {
             <SEO title="Interiöra" />
             <Hero title={"Interiöra"} paragraph={"Minimalism när den är som bäst"} />
             <CategoryButtons />
+
+            <SubHeader>
+                <Line />
+                <h3 style={{
+                    textAlign: "center", marginTop: "1em", letterSpacing: "3px",
+                    fontWeight: "bold"
+                }}>Produkter</h3>
+                <Line />
+            </SubHeader>
             <ProductsWrapper id="product-section">
                 {products.slice(0, 6).map(({ slug, ...products }, i) => (
                     <Product>
@@ -124,6 +133,34 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+const SubHeader = styled.div`
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-items: center;
+ margin-top: 0em;
+
+ @media screen and (max-width: 500px){
+     margin: 0;
+ }
+`
+
+const Line = styled.hr`
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.38em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    border-top: 1px solid #373737;
+    opacity: 20%;
+
+    @media screen and (max-width: 500px) {
+        width: 80vw;
+    }
+    
+`
 
 const ProductsWrapper = styled.div`
     display: grid;

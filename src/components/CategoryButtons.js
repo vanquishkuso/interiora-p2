@@ -58,30 +58,71 @@ const CategoryButtons = () => {
     }, [])
 
     return (
-        <CategoryWrapper>
-            {MenuData.slice(1, 9).map((data, i) => (
-                <Overlay>
+        <div style={{ marginBottom: "1em", marginTop: "1em" }}>
+            <SubHeader>
+                <Line />
+                <h3 style={{
+                    textAlign: "center", marginTop: "1em", letterSpacing: "3px",
+                    fontWeight: "bold"
+                }}>Produktkategorier</h3>
+                <Line />
+            </SubHeader>
 
-                    <CategoryLink to={data.link} style={{
-                        filter: { activeCategory },
-                        backgroundImage:
-                            data.title === "Hem" ? `url(${Hem})` :
-                                data.title === "Lampor" ? `url(${Lampor})` :
-                                    data.title === "Stolar" ? `url(${Stolar})` :
-                                        data.title === "Bord" ? `url(${Bord})` :
-                                            data.title === "Matsalsgrupper" ? `url(${Matsalsgrupper})` :
-                                                data.title === "Sängar" ? `url(${Sängar})` :
-                                                    data.title === "Soffor" ? `url(${Soffor})` :
-                                                        data.title === "Fåtöljer" ? `url(${Fåtöljer})` :
-                                                            data.title === "Dekoration" ? `url(${Dekoration})` : null,
-                        backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center",
-                    }}> <Title>{data.title}</Title></CategoryLink>
+            <CategoryWrapper>
 
-                </Overlay>
-            ))}
-        </CategoryWrapper>
+
+                {MenuData.slice(1, 9).map((data, i) => (
+                    <Overlay>
+
+                        <CategoryLink to={data.link} style={{
+                            filter: { activeCategory },
+                            backgroundImage:
+                                data.title === "Hem" ? `url(${Hem})` :
+                                    data.title === "Lampor" ? `url(${Lampor})` :
+                                        data.title === "Stolar" ? `url(${Stolar})` :
+                                            data.title === "Bord" ? `url(${Bord})` :
+                                                data.title === "Matsalsgrupper" ? `url(${Matsalsgrupper})` :
+                                                    data.title === "Sängar" ? `url(${Sängar})` :
+                                                        data.title === "Soffor" ? `url(${Soffor})` :
+                                                            data.title === "Fåtöljer" ? `url(${Fåtöljer})` :
+                                                                data.title === "Dekoration" ? `url(${Dekoration})` : null,
+                            backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center",
+                        }}> <Title>{data.title}</Title></CategoryLink>
+
+                    </Overlay>
+                ))}
+            </CategoryWrapper>
+        </div>
     )
 }
+
+const SubHeader = styled.div`
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-items: center;
+ margin-top: 0.8em;
+
+ @media screen and (max-width: 500px){
+     margin: 0;
+ }
+`
+
+const Line = styled.hr`
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.38em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    border-top: 1px solid #373737;
+    opacity: 20%;
+
+    @media screen and (max-width: 500px) {
+        width: 80vw;
+    }
+    
+`
 
 const Title = styled.p`
        font-size: clamp(1rem, 3vw, 2rem);
