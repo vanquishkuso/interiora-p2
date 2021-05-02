@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import { FaBars } from 'react-icons/fa'
 import { FiShoppingCart, FiSearch } from 'react-icons/fi'
@@ -6,7 +6,16 @@ import { BsFillPersonFill } from "react-icons/bs"
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Button from "./Button"
 
-const BottomMobileMenu = () => {
+const BottomMobileMenu = ({ isClicked }) => {
+  const [getCart, setGetCart] = useState()
+  const [addCartStyle, setAddCartStyle] = useState()
+
+  useEffect(() => {
+    console.log(isClicked)
+    if (isClicked === true) {
+      setAddCartStyle(`backgroundColor: "green"`)
+    }
+  }, [isClicked])
 
   return (
     <MobileMenuWrapper style={{ position: "fixed", bottom: "0" }}>
@@ -44,6 +53,7 @@ const Account = styled(BsFillPersonFill)`
   color: #fff;
   font-size: 2em;
   height: 48px;
+
 `
 
 const Cart = styled(FiShoppingCart)`
@@ -61,7 +71,7 @@ const Bars = styled(FaBars)`
 const ButtonWrapper = styled.div`
   border-left: 2px solid #000;
   padding: 1em;
-  width: 25%;
+  width: 25vw;
   display: flex;
   justify-content: center;
   transition: 0.3s ease;
@@ -96,7 +106,7 @@ const MobileNav = styled.nav`
   align-items: center;
   padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 998;
-  background-color: #373737;
+  background-color: #fff;
   width: 100vw;
 `
 

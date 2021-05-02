@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Button } from './Button';
-import Loader from "react-loader-spinner";
+import React, { useState, useEffect } from 'react'
+import { Button } from './Button'
+import Loader from "react-loader-spinner"
+import BottomMobileMenu from "./BottomMobileMenu"
 
 
 const AddToCartButton = ({ product }) => {
@@ -49,7 +50,7 @@ const AddToCartButton = ({ product }) => {
 
             }}>{clickedItem == product.id && isClicked ?
                 <div><Loader type="Oval" color="#cccccc" height={30} width={30} /></div> : <p style={{ marginBottom: "5px", marginTop: "5px" }}>KÖP</p>}</Button>
-
+            <div style={{ display: "none" }}><BottomMobileMenu isClicked={isClicked} style={{ display: "none" }} /></div>
         </div>
     )
 }

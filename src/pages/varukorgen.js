@@ -40,9 +40,6 @@ const CartPage = () => {
     }
 
     const checkIfBox = () => {
-        if (check === false) {
-            alert("Du måste bocka för att du godkänner")
-        }
         if (check === true) {
             sendOrder()
         }
