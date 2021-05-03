@@ -68,7 +68,7 @@ const Hero = ({ title, paragraph }) => {
                     <HeroH1>{title}</HeroH1>
                     <HeroP>{paragraph}</HeroP>
 
-                    <AnchorLink href="#product-section"><Button primary="true" big="true" >Till produkterna</Button></AnchorLink>
+                    {/*<AnchorLink href="#product-section"><Button primary="true" big="true" >Till produkterna</Button></AnchorLink> */}
                 </HeroItems>
             </HeroContent>
         </HeroContainer >

@@ -181,7 +181,7 @@ const CartPage = () => {
 
                         {cartCost ?
                             <div style={{ textAlign: "center", marginBottom: "5em" }}>
-                                <ConfirmButton big={true} >Vidare till betalning</ConfirmButton>
+                                <ConfirmButton big={true} onClick={() => setShowPay(true)}> Vidare till betalning</ConfirmButton>
                                 <ProgressWrapper style={{ fontWeight: "bold" }}>
                                     <NumberWrapper >
                                         <Number>1</Number>
