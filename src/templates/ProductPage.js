@@ -20,7 +20,7 @@ const ProductPage = ({
             </ImageColumn>
             <TitelColumn>
                 <ProductTitle>{product.name}</ProductTitle>
-                <ProductCategory>{product.categories[0].name}</ProductCategory>
+                <ProductCategory to={`/kategori/${product.categories[0].slug}`}>{product.categories[0].name}</ProductCategory>
                 <ProductPrice>
                     {
                         new Intl.NumberFormat("sv-SE", {
@@ -55,6 +55,7 @@ export const pageQuery = graphql`
                           }
                           categories {
                             name
+                            slug
                         }
                     }
                 }
@@ -115,6 +116,12 @@ const ButtonWrapper = styled.div`
     }
 `
 
-const ProductCategory = styled.p`
-
+const ProductCategory = styled(Link)`
+    text-decoration: none;
+    color: #373737;
+    transition: 0.3s ease;
+    font-size: 1.2em;
+    &:hover {
+        color: #877D70;
+    }
 `
