@@ -39,7 +39,7 @@ const Header = ({ isClicked }) => {
           ))}
         </NavMenu>
 
-        <SearchClickable onClick={searchClick} style={{ order: "4" }}>
+        <SearchClickable onClick={searchClick} style={{ order: "5" }}>
           <Search />
         </SearchClickable>
 
@@ -307,11 +307,17 @@ const Search = styled(FiSearch)`
 
 const SearchClickable = styled.div`
   cursor: pointer;
+  margin-left: 1em;
+
+  @media screen and (max-width: 1085px) {
+    margin-right: 0.7em;
+    margin-left: 0.5em;
+}
   
 `
 
 const Cart = styled(FiShoppingCart)`
-  order: 5;
+  order: 4;
   color: #877D70;
   font-size: 1.8rem;
   cursor: pointer;
