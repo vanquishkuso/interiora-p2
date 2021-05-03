@@ -209,14 +209,22 @@ const MobileNav = styled.nav`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 998;
   background-color: #373737;
-  width: 100vw;
+  margin: 0 auto;
+  width: 100%;
+
 `
 
 const MobileMenuWrapper = styled.div`
   z-index: 999;
+  width: 100%;
+  margin: 0 auto;
+  display: none;
+
+@media screen and (max-width: 1085px) {
+  display: block;
+}
 `
 
 const Nav = styled.nav`
