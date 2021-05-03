@@ -31,15 +31,17 @@ const Header = ({ isClicked }) => {
         <NavLink to="/mitt-konto" style={{ display: "flex", alignContent: "center", order: "2" }}>
           <Account />
         </NavLink>
+
         <Logo to="/">Interiöra</Logo>
 
         <NavMenu>
           {MenuData.map((item, index) => (
             <NavLink to={item.link} key={index}>{item.title}</NavLink>
           ))}
+
         </NavMenu>
 
-        <SearchClickable onClick={searchClick} style={{ order: "5" }}>
+        <SearchClickable onClick={searchClick}>
           <Search />
         </SearchClickable>
 
@@ -48,6 +50,7 @@ const Header = ({ isClicked }) => {
         </NavLink>
 
       </Wrapper>
+
       { showMobileMenu ? <MobileWrapper>
         <MobileMenuCloseIcon onClick={menuClick} />
         <MobileMenu>
@@ -122,6 +125,10 @@ const Wrapper = styled.div`
   justify-content: center;
   justify-items: center;
   align-content: center;
+  position: relative;
+  z-index: 999;
+
+
 `
 
 
@@ -271,7 +278,6 @@ color: #877D70;
 const Bars = styled(FaBars)`
   display: none;
   color: #877D70;
-  
  
   &:hover {
     color: #373737;
@@ -308,17 +314,11 @@ const Search = styled(FiSearch)`
 
 const SearchClickable = styled.div`
   cursor: pointer;
-  margin-left: 1em;
-
-  @media screen and (max-width: 1085px) {
-    margin-right: 0.7em;
-    margin-left: 0.5em;
-}
-  
+  order: 4;
 `
 
 const Cart = styled(FiShoppingCart)`
-  order: 4;
+  order: 5;
   color: #877D70;
   font-size: 1.8rem;
   cursor: pointer;
@@ -329,11 +329,9 @@ const Cart = styled(FiShoppingCart)`
     }
 
   @media screen and (max-width: 1085px) {
-  display: block;
   font-size: 1.8rem;
 }
 `
-
 const Account = styled(BsFillPersonFill)`
   color: #877D70;
   font-size: 2rem;
@@ -357,15 +355,14 @@ const Account = styled(BsFillPersonFill)`
 
 `
 
-
 const NavMenu = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 0px;
+  margin: 0em 2vw 0em 2vw;
 
   @media screen and (max-width: 1085px) {
     display: none;
-
+    margin: 0;
   }
 `
 
@@ -376,26 +373,22 @@ const MobileWrapper = styled.div`
   position: absolute;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 70px;
   left: 0;
   right: 0;
   text-align: center;
   overflow: hidden;
-
-  @media screen and (max-width: 800px) {
-    display: none;
-  }
 `
 
 const MobileMenu = styled.div`
- // z-index: 60;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  justify-items: center;
+  justify-content: flex-start;
+  margin-top: 20px;
+  justify-items: flex-start;
   align-items: center;
   align-content: center;
   height: 100%;
-  margin-top: 20px;
 `
 
 const MobileNavLink = styled(Link)`
@@ -420,8 +413,9 @@ const MobileNavLink = styled(Link)`
 
 const MobileMenuCloseIcon = styled(AiOutlineClose)`
     position: absolute;
-    top: 8%;
+    top: 0;
     right: 0;
+    margin-top: 20px;
     margin-right: 0.9em;
     color: #877D70;
     font-size: 1.8rem;
@@ -444,17 +438,17 @@ const NavBtn = styled.div`
 `
 
 const CloseIcon = styled(AiOutlineClose)`
-  position: fixed;
-  top: calc(0% + 105px);
-  right: 0;
-  margin-right: 0.7em;
-  color: #877D70;
-  font-size: 1.8rem;
-  cursor: pointer;
-  z-index: 999;
-    &:hover {
-    color: #373737;
-    transition: 0.3s ease;
+position: absolute;
+top: calc(100% + 25px);
+right: 0;
+margin-right: 0.7em;
+color: #877D70;
+font-size: 1.8rem;
+cursor: pointer;
+z-index: 999;
+  &:hover {
+  color: #373737;
+  transition: 0.3s ease;
 }
 `
 
