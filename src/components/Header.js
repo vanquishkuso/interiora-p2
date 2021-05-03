@@ -31,7 +31,7 @@ const Header = ({ isClicked }) => {
         <NavLink to="/mitt-konto" style={{ display: "flex", alignContent: "center", order: "2" }}>
           <Account />
         </NavLink>
-        <Logo>Interiöra</Logo>
+        <Logo to="/">Interiöra</Logo>
 
         <NavMenu>
           {MenuData.map((item, index) => (
@@ -222,8 +222,7 @@ const Nav = styled.nav`
   position: relative;
 `
 
-const Logo = styled.div`
-  
+const Logo = styled(Link)`
   text-decoration: none;
   cursor: pointer;
   color: #373737;
