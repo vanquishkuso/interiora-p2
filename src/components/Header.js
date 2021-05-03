@@ -238,6 +238,7 @@ const Logo = styled(Link)`
   @media screen and (max-width: 500px) {
     margin: 0 auto;
     z-index: 999;
+
   }
 
   @media screen and (max-width: 1085px) {
