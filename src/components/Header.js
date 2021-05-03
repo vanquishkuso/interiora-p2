@@ -379,6 +379,10 @@ const MobileWrapper = styled.div`
   right: 0;
   text-align: center;
   overflow: hidden;
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
 `
 
 const MobileMenu = styled.div`
