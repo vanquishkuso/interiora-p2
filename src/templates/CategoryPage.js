@@ -46,7 +46,7 @@ const CategoryPage = ({
                                     {products.name}
                                 </LinkItem>
                                 <Category>{products.categories[0].name}</Category>
-                                <TextDesc>{products.description.substring(0, 50) + "..."}</TextDesc>
+                                <TextDesc>{products.description.substring(0, 50).split(" ").reverse().slice(1).reverse().join(" ") + "..."}</TextDesc>
                             </TextWrapper>
 
                         </LinkWrapper>
@@ -89,7 +89,7 @@ const CategoryPage = ({
                                     {products.name}
                                 </LinkItem>
                                 <Category>{products.categories[0].name}</Category>
-                                <TextDesc>{products.description.substring(0, 50) + "..."}</TextDesc>
+                                <TextDesc>{products.description.substring(0, 50).split(" ").reverse().slice(1).reverse().join(" ") + "..."}</TextDesc>
                             </TextWrapper>
 
                         </LinkWrapper>
