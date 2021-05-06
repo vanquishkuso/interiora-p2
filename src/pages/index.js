@@ -18,6 +18,7 @@ const pageQuery = graphql`
             name
             slug
             price
+            description
             categories {
                 name
             }
@@ -75,6 +76,7 @@ const IndexPage = () => {
                                     {products.name}
                                 </LinkItem>
                                 <Category>{products.categories[0].name}</Category>
+                                <TextDesc>{products.description.split(".")[0]}</TextDesc>
                             </TextWrapper>
 
                         </LinkWrapper>
@@ -113,6 +115,7 @@ const IndexPage = () => {
                                     {products.name}
                                 </LinkItem>
                                 <Category>{products.categories[0].name}</Category>
+                                <TextDesc>{products.description.split(".")[0]}</TextDesc>
                             </TextWrapper>
 
                         </LinkWrapper>
@@ -133,6 +136,17 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+
+const TextDesc = styled.p`
+    text-align: left;
+    margin-top: 1em;
+    height: 60px;
+
+    @media screen and (max-width: 500px) {
+        height: 110px; 
+    }
+`
 
 const SubHeader = styled.div`
  display: flex;
@@ -197,6 +211,7 @@ const Product = styled.div`
 const Price = styled.p`
     font-size: 18px;
     text-align: center;
+    margin-top: 0.5em;
 `
 
 const MiniBannerWrapper = styled.div`

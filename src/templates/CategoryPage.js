@@ -46,6 +46,7 @@ const CategoryPage = ({
                                     {products.name}
                                 </LinkItem>
                                 <Category>{products.categories[0].name}</Category>
+                                <TextDesc>{products.description.split(".")[0]}</TextDesc>
                             </TextWrapper>
 
                         </LinkWrapper>
@@ -88,6 +89,7 @@ const CategoryPage = ({
                                     {products.name}
                                 </LinkItem>
                                 <Category>{products.categories[0].name}</Category>
+                                <TextDesc>{products.description.split(".")[0]}</TextDesc>
                             </TextWrapper>
 
                         </LinkWrapper>
@@ -175,6 +177,16 @@ const ProductsWrapper = styled.div`
 }
 `
 
+const TextDesc = styled.p`
+    text-align: left;
+    margin-top: 1em;
+    height: 60px;
+
+    @media screen and (max-width: 500px) {
+        height: 110px; 
+    }
+`
+
 const Product = styled.div`
     display: flex;
     flex-direction: column;
@@ -193,8 +205,9 @@ const Product = styled.div`
 `
 
 const Price = styled.p`
-    font-size: 1em;
-    margin-right: 0em;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 0.5em;
 `
 
 const LinkWrapper = styled.div`
