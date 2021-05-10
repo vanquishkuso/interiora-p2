@@ -15,6 +15,7 @@ const CartPage = () => {
     const [tax, setTax] = useState(0)
     const [check, setCheck] = useState(false)
     const [showPay, setShowPay] = useState(false)
+    const [showAddress, setShowAddress] = useState(false)
 
     const handleRemove = (id) => {
         setUpdateCart("Remove")
@@ -121,9 +122,13 @@ const CartPage = () => {
         <Layout>
             <SEO title="Varukorgen - Interiöra" />
             <CartWrapper>
-
-                {showPay ?
+                {showAddress ?
                     <div>
+                        <div style={{ textAlign: "center", marginBottom: "0em", marginTop: "5em" }}>
+                            <Link to="/betalning/" state={{ cartCost }} style={{ textDecoration: "none", margin: "0 auto" }}>
+                                <ConfirmButton big={true} >Vidare till betalning</ConfirmButton>
+                            </Link>
+                        </div>
                         <ProgressWrapper style={{ textAlign: "center", marginBottom: "5em", fontWeight: "bold" }}>
                             <NumberWrapper style={{ opacity: "0.3" }}>
                                 <Number >1</Number>
@@ -131,6 +136,10 @@ const CartPage = () => {
                             </NumberWrapper>
                             <NumberWrapper>
                                 <Number>2</Number>
+                                <p>Adressuppgifter</p>
+                            </NumberWrapper>
+                            <NumberWrapper style={{ opacity: "0.3" }}>
+                                <Number>3</Number>
                                 <p>Betalning</p>
                             </NumberWrapper>
                             <NumberWrapper style={{ opacity: "0.3" }}>
@@ -138,6 +147,7 @@ const CartPage = () => {
                                 <p>Bekräftelse</p>
                             </NumberWrapper>
                         </ProgressWrapper>
+
                         <FormWrapper>
                             <FormTitle>Personuppgifter</FormTitle>
                         För- och efternamn <Name />
@@ -158,21 +168,12 @@ const CartPage = () => {
                        Mejladress <Mail />
                        Telefonnummer <Phone />
 
-                            <CheckBoxTextWrapper>
-                                <CheckBox type="checkbox" onClick={() => setCheck(prev => !prev)} style={{ marginRight: "1em", transform: "scale(1.5)" }} />
-                                <p>Jag godkänner&nbsp;
-                        <a href="/anvandarvillkor">användarvillkoren</a>
-                        &nbsp;förstår Interiöras&nbsp;
-                        <a href="/integritetspolicy">integritetspolicy</a>
-                        &nbsp;när jag bekräftar beställningen.
-                        </p>
-                            </CheckBoxTextWrapper>
-                            <ButtonWrapper>
-                                <Link onClick={() => checkIfBox()} to="/bekraftelse" style={{ textDecoration: "none", margin: "0 auto" }}>
-                                    <ConfirmButton big={true} disabled={!check}>Beställ</ConfirmButton>
-                                </Link>
-                            </ButtonWrapper>
                         </FormWrapper>
+                        <div style={{ textAlign: "center", marginBottom: "5em" }}>
+                            <Link to="/betalning/" state={{ cost: cartCost }} style={{ textDecoration: "none", margin: "0 auto" }}>
+                                <ConfirmButton big={true} >Vidare till betalning</ConfirmButton>
+                            </Link>
+                        </div>
                     </div>
 
                     :
@@ -181,14 +182,18 @@ const CartPage = () => {
 
                         {cartCost ?
                             <div style={{ textAlign: "center", marginBottom: "5em" }}>
-                                <ConfirmButton big={true} onClick={() => setShowPay(true)}> Vidare till betalning</ConfirmButton>
-                                <ProgressWrapper style={{ fontWeight: "bold" }}>
-                                    <NumberWrapper >
-                                        <Number>1</Number>
+                                <ConfirmButton big={true} onClick={() => setShowAddress(true)}>Vidare till adressuppgifter</ConfirmButton>
+                                <ProgressWrapper style={{ textAlign: "center", marginBottom: "5em", fontWeight: "bold" }}>
+                                    <NumberWrapper>
+                                        <Number >1</Number>
                                         <p>Varukorgen</p>
                                     </NumberWrapper>
                                     <NumberWrapper style={{ opacity: "0.3" }}>
                                         <Number>2</Number>
+                                        <p>Adressuppgifter</p>
+                                    </NumberWrapper>
+                                    <NumberWrapper style={{ opacity: "0.3" }}>
+                                        <Number>3</Number>
                                         <p>Betalning</p>
                                     </NumberWrapper>
                                     <NumberWrapper style={{ opacity: "0.3" }}>
@@ -208,7 +213,7 @@ const CartPage = () => {
                                 <TaxCost>{Math.round(cartCost * 0.2)} kr</TaxCost>
                             </BottomRow>
                             <div style={{ textAlign: "center", marginBottom: "5em" }}>
-                                <ConfirmButton big={true} onClick={() => setShowPay(true)} >Vidare till betalning</ConfirmButton>
+                                <ConfirmButton big={true} onClick={() => setShowAddress(true)}>Vidare till adressuppgifter</ConfirmButton>
                             </div>
                         </div>
                             : null}
@@ -227,6 +232,21 @@ const CartPage = () => {
         </Layout >
     )
 }
+//
+//<CheckBoxTextWrapper>
+//<CheckBox type="checkbox" onClick={() => setCheck(prev => !prev)} style={{ marginRight: "1em", transform: "scale(1.5)" }} />
+//<p>Jag godkänner&nbsp;
+//<a href="/anvandarvillkor">användarvillkoren</a>
+//&nbsp;förstår Interiöras&nbsp;
+//<a href="/integritetspolicy">integritetspolicy</a>
+//&nbsp;när jag bekräftar beställningen.
+//</p>
+//</CheckBoxTextWrapper>
+//<ButtonWrapper>
+//<Link onClick={() => checkIfBox()} to="/bekraftelse" style={{ textDecoration: "none", margin: "0 auto" }}>
+//    <ConfirmButton big={true} disabled={!check}>Beställ</ConfirmButton>
+//</Link>
+//</ButtonWrapper>
 
 
 export default CartPage
@@ -279,7 +299,6 @@ const CheckBox = styled.input`
 
 const ButtonWrapper = styled.div`
     margin: 1em auto 0 auto;
-
 `
 
 const FormTitle = styled.h2`

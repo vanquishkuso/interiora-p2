@@ -13,6 +13,10 @@ const ConfirmPage = () => {
                 </NumberWrapper>
                 <NumberWrapper style={{ opacity: "0.3" }}>
                     <Number>2</Number>
+                    <p>Adressuppgifter</p>
+                </NumberWrapper>
+                <NumberWrapper style={{ opacity: "0.3" }}>
+                    <Number>3</Number>
                     <p>Betalning</p>
                 </NumberWrapper>
                 <NumberWrapper>
