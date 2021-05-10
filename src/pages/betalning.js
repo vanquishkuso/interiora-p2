@@ -24,7 +24,7 @@ const PayPage = ({ location }) => {
     const sendOrder = () => {
         let order = [{
             orderId: Math.floor((Math.random() * 100)),
-            orderPrice: location.state.cartCost,
+            orderPrice: location.state.cost,
             orderDate: new Date().toISOString().slice(0, 10),
             deliveryDate: randomDate(new Date(2021, 5, 1), new Date(2021, 6, 1)).toISOString().slice(0, 10)
         }]
@@ -43,8 +43,6 @@ const PayPage = ({ location }) => {
     return (
         <Layout>
             <SEO title="Betalning - Interiöra" />
-            <button onClick={() => console.log(location.state.cartCost)}>Test</button>
-            <button onClick={() => console.log(location.state.cartCost)}>Test</button>
             <ProgressWrapper style={{ textAlign: "center", marginBottom: "5em", fontWeight: "bold" }}>
                 <NumberWrapper style={{ opacity: "0.3" }}>
                     <Number >1</Number>
@@ -124,10 +122,10 @@ const PayPage = ({ location }) => {
                     <VisaCard />
                     <MasterCard />
                 </div>
-                <CheckBoxTextWrapper>
-                    <CheckBox type="checkbox" onClick={() => setCheck(prev => !prev)} style={{ marginRight: "1em", transform: "scale(1.5)" }} />
-                    <p>Jag godkänner&nbsp;
-<a href="/anvandarvillkor">användarvillkoren</a>
+                <CheckBoxTextWrapper style={{ marginLeft: "0em" }}>
+                    <CheckBox type="checkbox" onClick={() => setCheck(prev => !prev)} style={{ marginLeft: "-1em", transform: "scale(1.5)" }} />
+                    <p style={{ marginLeft: "1em" }}> Jag godkänner&nbsp;
+                    <a href="/anvandarvillkor">användarvillkoren</a>
 &nbsp;förstår Interiöras&nbsp;
 <a href="/integritetspolicy">integritetspolicy</a>
 &nbsp;när jag bekräftar beställningen.
@@ -140,7 +138,7 @@ const PayPage = ({ location }) => {
             </PaymentWrapper>
 
 
-        </Layout>
+        </Layout >
     )
 }
 
@@ -182,13 +180,13 @@ const SecondCardColumn = styled.div`
     align-items: center;
 
     @media screen and (max-width: 500px) {
-        flex-direction: column;
+        flex-direction: row;
     }  
 `
 
 const PaymentWrapper = styled.div`
     box-shadow: rgba(0, 0, 0, 0.18) 0px 12px 24px;
-    background-color: #f8f8f8;
+    background-color: #f2f2f2;
     border-radius: 5px;
     width: 400px;
     margin: 0 auto;
@@ -198,7 +196,7 @@ const PaymentWrapper = styled.div`
     
     @media screen and (max-width: 500px) {
         width: 450px;
-        max-width: 100%;
+        max-width: 90%;
         padding: 2em;
     }  
 `
@@ -207,7 +205,7 @@ const PaymentWrapper = styled.div`
 
 const CardName = styled.input`
     font-size: 1em;
-    border: solid 1px #ebebeb;
+    border: solid 1px #ededed;
     border-radius: 5px;
     height: 2.5em;
     margin-bottom: 1em;
@@ -224,10 +222,10 @@ const CardName = styled.input`
 `
 
 const CardNumber = styled.input`
+    border: solid 1px #ededed;
     font-size: 1em;
     height: 2.5em;
     border-radius: 5px;
-    border: none;
     padding-left: 1em;
     margin-top: 0.3em;
     font-weight: bold;
@@ -240,7 +238,7 @@ const CVC = styled.input`
     height: 2.5em;
     width: 100%;
     border-radius: 5px;
-    border: none;
+    border: solid 1px #ededed;
     margin-right: 1em;
     padding-left: 1em;
     margin-top: 0.3em;
@@ -254,7 +252,7 @@ const CardMonthYear = styled.select`
     margin-right: 1em;
     height: 2.3em;
     border-radius: 5px;
-    border: none;
+    border: solid 1px #ededed;
     padding-left: 1em;
     margin-top: 0.3em;
     font-weight: bold;
@@ -265,10 +263,9 @@ const CardMonthYear = styled.select`
 const CardYear = styled.select`
     width: 90px;
     font-size: 1em;
-    margin-right: 1em;
     height: 2.3em;
     border-radius: 5px;
-    border: none;
+    border: solid 1px #ededed;
     padding-left: 1em;
     margin-top: 0.3em;
     font-weight: bold;
@@ -281,6 +278,8 @@ const CheckBoxTextWrapper = styled.div`
     flex-direction: row;
     width: 100%;
     text-align: left;
+    margin-top: 1em;
+
     a {
         transition: 0.3s ease;
         color: #877D70;
@@ -316,15 +315,26 @@ const Number = styled.p`
 `
 
 const NumberWrapper = styled.div`
-    margin-left: 0.8em;
-    margin-right: 0.8em;
+    font-size: 0.9em;
+    margin-left: 2em;
+    margin-right: 2em;
+
+    @media screen and (max-width: 500px){
+        margin: 0;
+    }
 `
 
 const ProgressWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+
     margin-top: 2em;
+    width: 100%;
+
+    @media screen and (max-width: 500px){
+        justify-content: space-evenly;
+    }
 `
 
 export default PayPage;

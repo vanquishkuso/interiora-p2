@@ -125,7 +125,7 @@ const CartPage = () => {
                 {showAddress ?
                     <div>
                         <div style={{ textAlign: "center", marginBottom: "0em", marginTop: "5em" }}>
-                            <Link to="/betalning/" state={{ cartCost }} style={{ textDecoration: "none", margin: "0 auto" }}>
+                            <Link to="/betalning/" state={{ cost: cartCost }} style={{ textDecoration: "none", margin: "0 auto" }}>
                                 <ConfirmButton big={true} >Vidare till betalning</ConfirmButton>
                             </Link>
                         </div>
@@ -252,19 +252,19 @@ const CartPage = () => {
 export default CartPage
 
 const NumberWrapper = styled.div`
-    margin-left: 0.8em;
-    margin-right: 0.8em;
+    font-size: 0.9em;
 `
 
 const ProgressWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-top: 2em;
+    width: 100%;
 `
 
 const Number = styled.p`
-    font-size: 1.5em;
+
     margin-left: 0.3em;
     margin-right: 0.3em;
 `

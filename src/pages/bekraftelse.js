@@ -60,15 +60,15 @@ const Wrapper = styled.div`
 `
 
 const NumberWrapper = styled.div`
-    margin-left: 0.8em;
-    margin-right: 0.8em;
+    font-size: 0.9em;
 `
 
 const ProgressWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-top: 2em;
+    width: 100%;
 `
 
 const Number = styled.p`
