@@ -123,10 +123,10 @@ const PayPage = ({ location }) => {
                     <MasterCard />
                 </div>
                 <CheckBoxTextWrapper style={{ marginLeft: "0em" }}>
-                    <CheckBox type="checkbox" onClick={() => setCheck(prev => !prev)} style={{ marginLeft: "-1em", transform: "scale(1.5)" }} />
-                    <p style={{ marginLeft: "1em" }}> Jag godkänner&nbsp;
+                    <CheckBox type="checkbox" onClick={() => setCheck(prev => !prev)} />
+                    <p> Jag godkänner &nbsp;
                     <a href="/anvandarvillkor">användarvillkoren</a>
-&nbsp;förstår Interiöras&nbsp;
+&nbsp; och förstår Interiöras&nbsp;
 <a href="/integritetspolicy">integritetspolicy</a>
 &nbsp;när jag bekräftar beställningen.
 </p>
@@ -288,10 +288,23 @@ const CheckBoxTextWrapper = styled.div`
             color: #373737;
         }
     }
+
+    @media screen and (max-width: 320px){
+        flex-direction: column;
+        margin-top: 2em;
+        text-align: center;
+    }
 `
 
 const CheckBox = styled.input`
-    
+    transform: scale(1.5);
+    margin-right: 1em;
+
+@media screen and (max-width: 320px){
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0.7em;
+    }
 `
 
 const ButtonWrapper = styled.div`
