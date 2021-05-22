@@ -143,7 +143,7 @@ const CartPage = () => {
                                 <p>Betalning</p>
                             </NumberWrapper>
                             <NumberWrapper style={{ opacity: "0.3" }}>
-                                <Number>3</Number>
+                                <Number>4</Number>
                                 <p>Bekräftelse</p>
                             </NumberWrapper>
                         </ProgressWrapper>
@@ -197,7 +197,7 @@ const CartPage = () => {
                                         <p>Betalning</p>
                                     </NumberWrapper>
                                     <NumberWrapper style={{ opacity: "0.3" }}>
-                                        <Number>3</Number>
+                                        <Number>4</Number>
                                         <p>Bekräftelse</p>
                                     </NumberWrapper>
                                 </ProgressWrapper>

@@ -57,7 +57,7 @@ const PayPage = ({ location }) => {
                     <p>Betalning</p>
                 </NumberWrapper>
                 <NumberWrapper style={{ opacity: "0.3" }}>
-                    <Number>3</Number>
+                    <Number>4</Number>
                     <p>Bekräftelse</p>
                 </NumberWrapper>
             </ProgressWrapper>

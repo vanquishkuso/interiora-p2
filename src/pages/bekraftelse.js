@@ -20,7 +20,7 @@ const ConfirmPage = () => {
                     <p>Betalning</p>
                 </NumberWrapper>
                 <NumberWrapper>
-                    <Number>3</Number>
+                    <Number>4</Number>
                     <p>Bekräftelse</p>
                 </NumberWrapper>
             </ProgressWrapper>
